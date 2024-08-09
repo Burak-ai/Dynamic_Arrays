@@ -64,10 +64,23 @@ public class DynamicArray {
     }
 
     private void grow() {
-
+        int newCapacity = (int)(capacity * 2);
+        Object[] newArray = new Object[newCapacity];
+        
+        System.arraycopy(array, 0, newArray, 0, size);
+        
+        capacity = newCapacity;
+        array = newArray;
     }
     private void shrink() {
 
+        int newCapacity = (int)(capacity / 2);
+        Object[] newArray = new Object[newCapacity];
+        
+        System.arraycopy(array, 0, newArray, 0, size);
+        
+        capacity = newCapacity;
+        array = newArray;
     }
     public boolean isEmpty() {
         return size == 0;
